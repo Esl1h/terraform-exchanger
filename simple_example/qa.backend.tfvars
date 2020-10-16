@@ -1,0 +1,6 @@
+bucket = "S3BUCKET-NAME-TO-YOUR-TFSTATES-QA-ENVIRONMENT"
+key = "tfstate/YOUR-PROJECT-NAME/terraform.tfstate"
+region = ""
+profile = ""
+dynamodb_table = "YOUR-DYNAMODB-TO-LOCK-TFSTATE"
+encrypt = "true"
