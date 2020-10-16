@@ -1,5 +1,7 @@
 # terraform-exchanger
-Um simples shell script para facilitar o uso do mesmo código terraform em vários ambientes. A simple shell script to facilitate the use of the same terraform code in many environments.
+Um simples shell script para facilitar o uso do mesmo código terraform em vários ambientes. 
+
+A simple shell script to facilitate the use of the same terraform code in many environments.
 
 
 
@@ -16,21 +18,25 @@ Antes de cada init, ele remove o diretório local .terraform/
 
 
 
-## Uso:
+## Use:
 
 informe como parametro o ambiente a ser executado: \"dev\", \"qa\" ou \"prod\"
  e informe o parametro do terraform: \"init\", \"plan\", \"apply\" ou "import". 
   
  
 
-Exemplo:
+Exemple:
 
 <code>terraform dev init </code>   
 
-
-Caso o parametro for \"import\", informe em sequência o resource e o ARN/ID/Name do recurso na AWS. 
-
-
-Exemplo:
-
 <code> terraform dev import "resource" "ARN"</code>
+
+
+
+
+## TO-DO:
+
+- [ ] Move to getopts
+- [ ] rollback $PATH after execution
+- [ ] change to always use the latest terraform version
+- [ ] reduce the code

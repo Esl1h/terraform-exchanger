@@ -23,30 +23,27 @@ try() {
 function erroarg() {
     echo "$0: $*" >&2;
     echo "Não há parametros dev|prod e init|plan|apply|import"
-    echo "execute --help ou -h para mais informações"
+    echo "execute -h para mais informações"
     exit 1
 }
 
 function erroarg1() {
     echo "$0: $*" >&2;
     echo "o parametro \"$ENVIRONMENT\" está errado"
-    echo "execute --help ou -h para mais informações"
+    echo "execute -h para mais informações"
     exit 1
 }
 
 function erroarg2() {
     echo "$0: $*" >&2;
     echo "o parametro \"$TF_PARAM\" para o terraform não é suportado por este programa"
-    echo "execute --help ou -h para mais informações"
+    echo "execute -h para mais informações"
     exit 1
 }
 
 function helpinfo() {
     echo "$0: $*" >&2;
     echo -e "\a Terraform Script \n
-        Função:
-            \v Este script irá facilitar o uso do terraform. Ele irá verificar sua versão atual, caso não tenha ou seja outra irá baixar e executar a correta.
-        Uso:
             \v informe como parametro o ambiente a ser executado: \"dev\", \"qa\" ou \"prod\",  e informe o parametro do terraform: \"init\", \"plan\", \"apply\". Exemplo:\n
             # terraform dev init   
             \v Caso o parametro for \"import\", informe em sequencia o resource e o ARN/ID/Name do recurso na AWS. Exemplo:\n
@@ -64,8 +61,6 @@ function install() {
         PATH=$(pwd):$PATH
         TERRAFORM=$(terraform -v | head -n 1)
 }
-
-
 
 
 if ! command -v terraform &> /dev/null
