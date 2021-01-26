@@ -1,18 +1,23 @@
 #!/bin/bash
 PATH=$(pwd):$PATH
 TERRAFORM=$(terraform -v | head -n 1)
-VERSION="Terraform v0.13.5"
-DOWNLOAD="https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip"
-PACKAGE="terraform_0.13.5_linux_amd64.zip"
+VERSION="Terraform v0.14.5"
+DOWNLOAD="https://releases.hashicorp.com/terraform/0.14.5/terraform_0.14.5_linux_amd64.zip"
+PACKAGE="terraform_0.14.5_linux_amd64.zip"
 ENVIRONMENT=$1
 TF_PARAM=$2
 ENV_REGEX="^(qa$|dev$|prod$)"
 TF_REGEX="^(init$|plan$|apply$|import$)"
 
+# latest terraform 13.X:
+# VERSION="Terraform v0.13.6"
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.13.6/terraform_0.13.6_linux_amd64.zip"
+# PACKAGE="terraform_0.13.6_linux_amd64.zip"
+
 # latest terraform 12.X:
-# VERSION="Terraform v0.11.14"
-# DOWNLOAD="https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip"
-# PACKAGE="terraform_0.11.14_linux_amd64.zip"
+# VERSION="Terraform v0.12.30"
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.12.30/terraform_0.12.30_linux_amd64.zip"
+# PACKAGE="terraform_0.12.30_linux_amd64.zip"
 
 # latest terraform 11.X:
 # VERSION="Terraform v0.11.14"
