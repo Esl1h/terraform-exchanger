@@ -1,30 +1,28 @@
 #!/bin/bash
 PATH=$(pwd):$PATH
 TERRAFORM=$(terraform -v | head -n 1)
-VERSION="Terraform v0.14.5"
-DOWNLOAD="https://releases.hashicorp.com/terraform/0.14.5/terraform_0.14.5_linux_amd64.zip"
-PACKAGE="terraform_0.14.5_linux_amd64.zip"
+VERSION="Terraform v1.1.8"
+DOWNLOAD="https://releases.hashicorp.com/terraform/1.1.8/terraform_1.1.8_linux_amd64.zip"
+PACKAGE="terraform_1.1.8_linux_amd64.zip"
 ENVIRONMENT=$1
 TF_PARAM=$2
 ENV_REGEX="^(qa$|dev$|prod$)"
 TF_REGEX="^(init$|plan$|apply$|import$)"
 
+# latest terraform 15.X:
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip"
+
+# latest terraform 14.X:
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.14.11/terraform_0.14.11_linux_amd64.zip"
+
 # latest terraform 13.X:
-# VERSION="Terraform v0.13.6"
-# DOWNLOAD="https://releases.hashicorp.com/terraform/0.13.6/terraform_0.13.6_linux_amd64.zip"
-# PACKAGE="terraform_0.13.6_linux_amd64.zip"
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.13.7/terraform_0.13.7_linux_amd64.zip"
 
 # latest terraform 12.X:
-# VERSION="Terraform v0.12.30"
-# DOWNLOAD="https://releases.hashicorp.com/terraform/0.12.30/terraform_0.12.30_linux_amd64.zip"
-# PACKAGE="terraform_0.12.30_linux_amd64.zip"
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.12.31/terraform_0.12.31_linux_amd64.zip"
 
 # latest terraform 11.X:
-# VERSION="Terraform v0.11.14"
-# DOWNLOAD="https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip"
-# PACKAGE="terraform_0.11.14_linux_amd64.zip"
-
-
+# DOWNLOAD="https://releases.hashicorp.com/terraform/0.11.15/terraform_0.11.15_linux_amd64.zip"
 
 yell() { 
     echo "$0: $*" >&2; 
@@ -79,7 +77,6 @@ function install() {
         TERRAFORM=$(terraform -v | head -n 1)
 }
 
-
 if ! command -v terraform &> /dev/null
 then
     install
@@ -120,7 +117,6 @@ if [[ $TF_PARAM =~ $TF_REGEX ]];
         exit 1
 fi 
 
-
 if [ $TFARG == "init" ];
     then
         rm -rf .terraform/
@@ -137,4 +133,3 @@ if [ $TFARG == "init" ];
     else
         try
 fi 
-
